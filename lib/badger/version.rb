@@ -1,3 +1,3 @@
 module Badger
-  VERSION = "0.8.3"
+  VERSION = "0.15.0"
 end

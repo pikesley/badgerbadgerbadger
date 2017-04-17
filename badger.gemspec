@@ -6,12 +6,11 @@ require 'badger/version'
 Gem::Specification.new do |spec|
   spec.name          = 'badgerbadgerbadger'
   spec.version       = Badger::VERSION
-  spec.version       = "#{spec.version}-alpha-#{ENV['TRAVIS_BUILD_NUMBER']}" if ENV['TRAVIS']
   spec.authors       = ['pikesley']
   spec.email         = ['sam@pikesley.org']
-  spec.description   = %q{Generate Github project badges}
+  spec.description   = %q{Generate Github project badges like a boss}
   spec.summary       = %q{Badge-Driven Development made easy. Generate a set of Github badges for your project without cutting-n-pasting every time}
-  spec.homepage      = 'https://github.com/pikesley/badger'
+  spec.homepage      = 'http://badges.github.io/badgerbadgerbadger/'
   spec.license       = 'MIT'
   spec.files         = `git ls-files`.split($/)
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
@@ -23,8 +22,7 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency 'bundler', '~> 1.5'
   spec.add_development_dependency 'rake', '~> 10.1'
-  spec.add_development_dependency 'rspec', '~> 2.14'
-  spec.add_development_dependency 'rspec-pride', '~> 2.3'
+  spec.add_development_dependency 'rspec', '~> 3'
   spec.add_development_dependency 'cucumber', '~> 1.3'
   spec.add_development_dependency 'aruba', '~> 0.5'
   spec.add_development_dependency 'guard', '~> 2.3'

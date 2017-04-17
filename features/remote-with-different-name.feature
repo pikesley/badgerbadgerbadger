@@ -1,7 +1,7 @@
 Feature: Badge robot
 
   Background:
-    Given git remote is "git@github.com:doge/wow.git"
+    Given git remote "something" points to "https://github.com/doge/wow"
 
   @travis @gemnasium @coveralls @gemspec @mit
   Scenario: One with everything
@@ -14,26 +14,4 @@ Feature: Badge robot
 [![Code Climate](http://img.shields.io/codeclimate/github/doge/wow.svg?style=flat-square)](https://codeclimate.com/github/doge/wow)
 [![Gem Version](http://img.shields.io/gem/v/suchgem.svg?style=flat-square)](https://rubygems.org/gems/suchgem)
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://doge.mit-license.org)
-    """
-    And the output should not contain:
-    """
-[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://doge.mit-license.org)
-[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://doge.mit-license.org)
-    """
-
-   Scenario: handle a non-git-repo gracefully
-     When I run `badger badge /tmp`
-     Then the output should contain:
-     """
-Run this from inside a git repo
-     """
-     And the exit status should be 1
-
-   @no-remote
-   Scenario: handle a git repo without a github remote
-     When I run `badger badge /tmp/not_wow`
-     Then the output should contain:
-     """
-This repo does not appear to have a github remote
-     """
-     And the exit status should be 2
+   """

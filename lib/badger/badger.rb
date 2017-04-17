@@ -28,6 +28,10 @@ module Badger
       self << Rubygem.badge(name)
     end
 
+    def dependencyci
+      self << DependencyCI.badge(github_slug)
+    end
+
     def bonus
       self.uniq!
       self << Bonus.badge(self)
@@ -35,6 +39,15 @@ module Badger
 
     def badge_type type
       Config.instance.config['badge_type'] = type
+    end
+
+    def style style
+      unless Config.instance.config['valid_styles'].include? style
+        puts "Invalid style choice '#{style}'"
+        exit 3
+      end
+
+      Config.instance.config['badge_style'] = style
     end
 
     def to_s
